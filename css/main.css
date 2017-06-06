@@ -17,3 +17,12 @@ header {
 header .fa-chevron-left {
   margin-right: 16px;
 }
+
+.stationItem{
+  margin: 1em;
+}
+
+#map{
+  width: 400px !important;
+  height: 400px !important;
+}

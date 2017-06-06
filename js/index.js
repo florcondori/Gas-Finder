@@ -5,8 +5,16 @@ const render = (root) => {
   const wrapper = $('<div class="wrapper"></div>');
 
   wrapper.append(Header(_ => render(root)));
-  wrapper.append(Search(_ => render(root)));
 
+  if (state.selectedStation === null) {
+    wrapper.append(Search(_ => render(root)));
+  } else {
+    const gmap = Gmap();  
+    wrapper.append(gmap);
+    wrapper.append(StationDetails(_ => render(root)));
+    gmap.init();
+  }
+  
   root.append(wrapper);
 }
 
