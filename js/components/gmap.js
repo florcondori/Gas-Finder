@@ -1,36 +1,38 @@
 'use strict';
 const init = (parent) =>{
+  const latStation = state.selectedStation.lat;
+  const longStation = state.selectedStation.long;
   const map = new GMaps({
     el: parent,
-    lat: state.selectedStation.lat,
-    lng: state.selectedStation.long
+    lat: latStation,
+    lng: longStation
   });
 
   map.addMarker({
-    lat: state.selectedStation.lat,
-    lng: state.selectedStation.long,
+    lat: latStation,
+    lng: longStation,
     zoom: 13
   });
-
   /*Ubicarme*/
-  GMaps.geolocate({
+  $(document).ready(function(){
+    GMaps.geolocate({
     success: function(position) {
       map.setCenter(position.coords.latitude, position.coords.longitude);
-      map.setZoom(11);
+      map.setZoom(14);
 
       map.addMarker({
         lat: position.coords.latitude,
         lng: position.coords.longitude     
       });
-
       map.drawRoute({
         origin: [position.coords.latitude, position.coords.longitude],
-        destination: [state.selectedStation.lat, state.selectedStation.long],
+        destination: [latStation, longStation],
         travelMode: 'driving',
         strokeColor: '#FF00FF',
         strokeOpacity: 0.6,
         strokeWeight: 6
-      });      
+      }); 
+   
     },
     error: function(error) {
       alert('Geolocation failed: '+error.message);
@@ -39,16 +41,8 @@ const init = (parent) =>{
       alert("Your browser does not support geolocation");
     }
   });
-
-/*  
-  map.drawRoute({
-    origin: [-12.044012922866312, -77.02470665341184],
-    destination: [state.selectedStation.lat, state.selectedStation.long],
-    travelMode: 'driving',
-    strokeColor: '#FF00FF',
-    strokeOpacity: 0.6,
-    strokeWeight: 6
-  });*/
+});
+  
 }
 
 const Gmap = _=>{
@@ -57,6 +51,8 @@ const Gmap = _=>{
 
   return containerMap;
 };
+
+
 
 
 

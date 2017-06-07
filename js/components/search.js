@@ -56,7 +56,6 @@ const Search = (update)=>{
 
 	input.on("keyup", () =>{		
 		if(input.val() != ""){
-			console.log(filterByDistrict(state.stations,input.val()));
 			var encontrados = filterByDistrict(state.stations,input.val());
 		}
 

@@ -10,12 +10,8 @@ header {
   font-size: 18px;
   height: 56px;
   line-height: 56px;
-  padding-left: 16px;
+  padding-left: 25px;
   background-color: #F44336;
-}
-
-header .fa-chevron-left {
-  margin-right: 16px;
 }
 
 input{
@@ -26,8 +22,7 @@ input{
 }
 
 a{
-  text-decoration: none;
-  color: gray;
+  text-decoration: none;  
 }
 
 /*Estilos para Search*/
@@ -43,6 +38,7 @@ a{
 
 .stationItem a{
   float: right;
+  color: gray;
 }
 
 /*Estilos para details de Station*/
@@ -75,6 +71,13 @@ a{
   border-radius: 4px;
   padding: 7px;
   margin: 7px;
+}
+
+#regresar{
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  color: black;
 }
 
 /*Clases reutilizables*/

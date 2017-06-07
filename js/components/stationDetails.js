@@ -23,6 +23,7 @@ const StationDetails = (update)=>{
 		e.preventDefault();
 		state.selectedStation = null;
 		update();
+		console.log(update)
 	})
 	
 	return detailsStation;
