@@ -2,6 +2,7 @@
 
 const render = (root) => {
   root.empty();
+
   const wrapper = $('<div class="wrapper"></div>');
 
   wrapper.append(Header(_ => render(root)));
@@ -11,7 +12,7 @@ const render = (root) => {
   } else {
     const gmap = Gmap();  
     wrapper.append(gmap);
-    wrapper.append(StationDetails(_ => render(root)));
+    wrapper.append(StationDetails());
     gmap.init();
   }
   

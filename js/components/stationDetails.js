@@ -1,5 +1,5 @@
 'use strict';
-const StationDetails = (update)=>{
+const StationDetails = _=>{
 	const detailsStation = $("<div class='detailsStation'></div>");
 	const name = $("<p>"+state.selectedStation.name+"</p>");
 	const address = $("<p>"+state.selectedStation.address+"</p>");

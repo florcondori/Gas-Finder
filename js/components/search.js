@@ -30,6 +30,7 @@ const reRender = (listStations,encontrados,update)=>{
 		listStations.append(StationItem(station, update));
 		
 	});
+		
 };
 
 const Search = (update)=>{
@@ -45,6 +46,11 @@ const Search = (update)=>{
 
 	sectionSearch.append(div);
 
+	state.stations.forEach(station=>{
+		listStations.append(StationItem(station, update));
+		
+	});
+
 	containerSearch.append(sectionSearch);
 	containerSearch.append(listStations);
 
@@ -54,7 +60,7 @@ const Search = (update)=>{
 			var encontrados = filterByDistrict(state.stations,input.val());
 		}
 
-		reRender(listStations,encontrados,update);	
+		reRender(listStations,encontrados,update);
 	});
 
 	return containerSearch;	
