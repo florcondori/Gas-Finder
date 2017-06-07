@@ -12,7 +12,7 @@ const render = (root) => {
   } else {
     const gmap = Gmap();  
     wrapper.append(gmap);
-    wrapper.append(StationDetails());
+    wrapper.append(StationDetails(_ => render(root)));
     gmap.init();
   }
   
