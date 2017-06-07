@@ -14,7 +14,7 @@ const init = (parent) =>{
   });
 }
 
-const Gmap = (update)=>{
+const Gmap = ()=>{
   const containerMap = $("<div id='map'></div>");
   containerMap.init = init.bind(null,containerMap.get(0));
 

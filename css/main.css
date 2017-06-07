@@ -26,3 +26,7 @@ header .fa-chevron-left {
   width: 400px !important;
   height: 400px !important;
 }
+
+.product{
+  border: 1px solid gray;
+}
