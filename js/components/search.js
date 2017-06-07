@@ -30,12 +30,20 @@ const reRender = (listStations,encontrados,update)=>{
 };
 
 const Search = (update)=>{
-	const contenedor = $("<div></div>");
-	const input = $("<input type='text'>");
-	const listStations = $("<div class='list-contenedor'></div>");
+	const containerSearch = $("<section></section>");
+	const sectionSearch = $("<div class='bg-red p-7'></div>");
+	const div = $("<div class='bg-white p-7'></div>");
+	const iconSearch = $("<i class='fa fa-search'></i>");
+	const input = $("<input type='text' placeholder='Ingrese su destino a buscar'>");
+	const listStations = $("<div class='list-stations'></div>");
 
-	contenedor.append(input);
-	contenedor.append(listStations);
+	div.append(iconSearch);
+	div.append(input);
+
+	sectionSearch.append(div);
+
+	containerSearch.append(sectionSearch);
+	containerSearch.append(listStations);
 
 	input.on("keyup", () =>{		
 		if(input.val() != ""){
@@ -46,5 +54,5 @@ const Search = (update)=>{
 		reRender(listStations,encontrados,update);	
 	});
 
-	return contenedor;	
+	return containerSearch;	
 };

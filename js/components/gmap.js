@@ -9,12 +9,11 @@ const init = (parent) =>{
   map.addMarker({
     lat: state.selectedStation.lat,
     lng: state.selectedStation.long,
-    title: state.selectedStation.name,
     zoom: 13
   });
 }
 
-const Gmap = ()=>{
+const Gmap = _=>{
   const containerMap = $("<div id='map'></div>");
   containerMap.init = init.bind(null,containerMap.get(0));
 

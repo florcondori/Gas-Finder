@@ -18,15 +18,37 @@ header .fa-chevron-left {
   margin-right: 16px;
 }
 
+input{
+  border: none;
+  padding: 7px;
+  outline: none;
+  width: 90%;
+}
+/*Estilos para Search*/
 .stationItem{
   margin: 1em;
 }
-
+/*Estilos para details de Station*/
 #map{
-  width: 400px !important;
+  width: 100% !important;
   height: 400px !important;
 }
 
 .product{
   border: 1px solid gray;
+  border-radius: 4px;
+  padding: 7px;
+}
+
+/*Clases reutilizables*/
+.bg-red{
+  background-color: #F44336;
+}
+
+.bg-white{
+  background-color: #fff;
+}
+
+.p-7{
+  padding: 7px;
 }
