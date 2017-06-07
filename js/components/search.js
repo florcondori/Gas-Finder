@@ -1,10 +1,13 @@
 'use strict';
 const StationItem = (station,update)=>{
 	const stationItem = $("<div class='stationItem'></div>");
-	const name = $("<span>"+station.name+"</span>");
+	const name = $("<span class='bold'>"+station.name+"</span>");
 	const address = $("<p>"+station.address+"</p>");
 	const district = $("<p>"+station.district+"</p>");
-	const ancla = $("<a href='#'>seleccionar</a>");
+	const ancla = $("<a href='#'></a>");
+	const iconMap =$("<i class='fa fa-map'></i>");
+
+	ancla.append(iconMap);
 
 	stationItem.append(name);
 	stationItem.append(ancla);
