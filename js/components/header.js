@@ -1,11 +1,21 @@
 'use strict';
 
 const Header = (update) => {
-  const header = $("<header></header>");
-  const title = $("<span>Gas Finder</span>");
-  const icon = $('<i class="fa fa-chevron-left" aria-hidden="true"></i>');
+ 	const header = $("<header></header>");
+ 	const title = $("<span>Gas Finder</span>");
+	const ancla = $("<a id='regresar' href='#'></a>");
+	const iconRegresar = $("<i class='fa fa-chevron-left'></i>");
+	
+	ancla.append(iconRegresar);
+	header.append(title);
+	/*header.append(ancla);
 
-  header.append(title);
+	ancla.on('click',(e) => {
+		e.preventDefault();
+		state.selectedStation = null;
+		update();
+		console.log(update);
+	});*/
 
-  return header;
+	return header;
 }
