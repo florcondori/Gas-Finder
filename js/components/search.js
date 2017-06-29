@@ -25,11 +25,17 @@ const StationItem = (station,update)=>{
 
 const reRender = (listStations,encontrados,update)=>{
 	listStations.empty();
-
-	encontrados.forEach(station=>{
-		listStations.append(StationItem(station, update));
+		if(encontrados.length > 0){
+			encontrados.forEach(station=>{
+				listStations.append(StationItem(station, update));
+			
+			});
+		}
 		
-	});
+		if(encontrados.length == 0){
+			listStations.append("<p class='no-encontrado'>No hay Estaciones en ese distrito</p>");
+		}
+	
 		
 };
 
@@ -39,7 +45,7 @@ const Search = (update)=>{
 	const div = $("<div class='bg-white p-7'></div>");
 	const iconSearch = $("<i class='fa fa-search'></i>");
 	const input = $("<input type='text' placeholder='Ingrese su destino a buscar'>");
-	const listStations = $("<div class='list-stations'></div>");
+	const listStations = $("<div></div>");
 
 	div.append(iconSearch);
 	div.append(input);
@@ -55,10 +61,8 @@ const Search = (update)=>{
 	containerSearch.append(listStations);
 
 	input.on("keyup", () =>{		
-		if(input.val() != ""){
-			var encontrados = filterByDistrict(state.stations,input.val());
-		}
-
+		const encontrados = filterByDistrict(state.stations,input.val());
+		
 		reRender(listStations,encontrados,update);
 	});
 

@@ -40,6 +40,9 @@ a{
   float: right;
   color: gray;
 }
+.no-encontrado{
+  margin: 1.4em 5px;
+}
 
 /*Estilos para details de Station*/
 #map{
@@ -50,6 +53,7 @@ a{
 
 .detailsStation{
   padding: 1.4em;
+  position: relative;
 }
 .detailsStation p:first-child{
   border-bottom: 1px solid gray;
@@ -75,9 +79,16 @@ a{
 
 #regresar{
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 10px;
   color: black;
+}
+
+#km{
+  position: absolute;
+  top: 1.4em;
+  right: 1.4em;
+  font-weight: bold;
 }
 
 /*Clases reutilizables*/

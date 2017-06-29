@@ -8,14 +8,20 @@ const Header = (update) => {
 	
 	ancla.append(iconRegresar);
 	header.append(title);
-	/*header.append(ancla);
+	header.append(ancla);
+
+	if(state.selectedStation){
+		ancla.show();
+	}else{
+		ancla.hide();
+	}
 
 	ancla.on('click',(e) => {
 		e.preventDefault();
 		state.selectedStation = null;
 		update();
 		console.log(update);
-	});*/
+	});
 
 	return header;
 }

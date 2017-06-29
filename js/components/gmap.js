@@ -14,29 +14,47 @@ const init = (parent) =>{
     map.addMarker({
       lat: latStation,
       lng: longStation,
-      zoom: 13
+      zoom: 11
     });
 
     /*Ubicarme*/  
     GMaps.geolocate({
       success: function(position) {
-        map.setCenter(position.coords.latitude, position.coords.longitude);
-        map.setZoom(14);
+        const miLat = position.coords.latitude;
+        const miLong = position.coords.longitude;
+
+        map.setCenter(miLat, miLong);
+        map.setZoom(13);
 
         map.addMarker({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude     
+          lat: miLat,
+          lng: miLong     
         });
         /*Dibujar ruta*/
         map.drawRoute({
-          origin: [position.coords.latitude, position.coords.longitude],
+          origin: [miLat, miLong],
           destination: [latStation, longStation],
           travelMode: 'driving',
-          strokeColor: '#FF00FF',
-          strokeOpacity: 0.6,
-          strokeWeight: 6
-        }); 
-
+          strokeColor: '#FF0000',
+          strokeWeight: 6,
+          
+        });
+        
+        map.getRoutes({
+          origin: [miLat, miLong],
+          destination: [latStation, longStation],
+          travelMode: 'driving',
+          callback: function(e){
+            var route = new GMaps.Route({
+              map: map,
+              route: e[0],
+            });
+            console.log(route.route.legs[0].distance.text);
+            const km = route.route.legs[0].distance.text.replace(",",".").replace("km","KM");
+            $("#km").text(km);
+          }
+        });
+       
       },
       error: function(error) {
         alert('Geolocation failed: '+error.message);
@@ -51,7 +69,7 @@ const init = (parent) =>{
 
 const Gmap = _=>{
   const containerMap = $("<div id='map'></div>");
-  containerMap.init = init.bind(null,containerMap.get(0));
+  containerMap.initMap = init.bind(null,containerMap.get(0));
 
   return containerMap;
 };
